@@ -14,9 +14,9 @@ module.exports = {
           "linear-gradient(93.73deg, #B3CA85 5.04%, #4DAAD3 95.09%)",
       },
     },
-    borderRadiusMain: {
-      "25px": "25px",
+    borderRadius: {
+      full: "25px",
     },
   },
-  plugins: [],
+  plugins: [require("daisyui")],
 }
