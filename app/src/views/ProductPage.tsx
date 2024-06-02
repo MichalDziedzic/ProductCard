@@ -3,10 +3,14 @@ import InputSlider from "../components/PriceSlider"
 import watch1 from "../assets/1.png"
 import watch2 from "../assets/2.jpeg"
 import watch3 from "../assets/3.jpeg"
-import { useStoreProducts } from "../stores/productsStore"
+import { useProduct } from "../Hooks/useProduct"
 
 function ProductPage() {
-  const { product } = useStoreProducts()
+  const product = useProduct()
+
+  if (!product) {
+    return null // Zostanie przekierowany do /404
+  }
   //   const product = useStore((state) => state.product)
   //   const productList = useStore((state) => state.productList)
   //   const increasePieceValue = useStore((state) => state.increasePieceValue)
