@@ -1,56 +1,75 @@
 import * as React from "react"
 import Box from "@mui/material/Box"
 import Grid from "@mui/material/Grid"
-
 import Slider from "@mui/material/Slider"
 import MuiInput from "@mui/material/Input"
-
 import { styled } from "@mui/material/styles"
 
+interface InputSliderProps {
+  totalPrice: number
+  pieceValue: number
+  boughtValue: number
+  onChange: (value: number) => void
+}
+
 const Input = styled(MuiInput)`
-  width: 42px;
+  width: auto;
 `
 
-const InputSlider: React.FC = () => {
-  const [value, setValue] = React.useState<number>(30)
+const InputSlider: React.FC<InputSliderProps> = ({
+  totalPrice,
+  pieceValue,
+  boughtValue,
+  onChange,
+}) => {
+  const [value, setValue] = React.useState<number>(1)
 
   const handleSliderChange = (event: Event, newValue: number | number[]) => {
-    setValue(newValue as number)
+    const newVal = newValue as number
+    setValue(newVal)
+    onChange(newVal)
   }
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setValue(event.target.value === "" ? 0 : Number(event.target.value))
+    const newVal = event.target.value === "" ? 0 : Number(event.target.value)
+    setValue(newVal)
+    onChange(newVal)
   }
 
   const handleBlur = () => {
-    if (value < 0) {
-      setValue(0)
-    } else if (value > 100) {
-      setValue(100)
+    if (value < 1) {
+      setValue(1)
+      onChange(1)
+    } else if (value > totalPrice / pieceValue) {
+      const maxValue = Math.floor(totalPrice / pieceValue)
+      setValue(maxValue)
+      onChange(maxValue)
     }
   }
 
   return (
-    <Box sx={{ width: 250 }}>
+    <Box>
       <Grid container spacing={2} alignItems="center">
-        <Grid item></Grid>
         <Grid item xs>
           <Slider
             value={typeof value === "number" ? value : 0}
             onChange={handleSliderChange}
             aria-labelledby="input-slider"
+            step={1}
+            min={1}
+            max={100}
             sx={{
               "& .MuiSlider-thumb": {
                 background:
-                  "linear-gradient(93.73deg, #B3CA85 5.04%, #4DAAD3 95.09%)", // Ustaw kolor kciuka
+                  "linear-gradient(93.73deg, #B3CA85 5.04%, #4DAAD3 95.09%)",
               },
               "& .MuiSlider-track": {
                 background:
-                  "linear-gradient(93.73deg, #B3CA85 5.04%, #4DAAD3 95.09%)", // Ustaw gradient na ścieżce
+                  "linear-gradient(93.73deg, #B3CA85 5.04%, #4DAAD3 95.09%)",
               },
               "& .MuiSlider-rail": {
                 background:
-                  "linear-gradient(93.73deg, #B3CA85 5.04%, #4DAAD3 95.09%)", // Ustaw gradient na torze
+                  "linear-gradient(93.73deg, #B3CA85 5.04%, #4DAAD3 95.09%)",
               },
             }}
           />
@@ -64,7 +83,7 @@ const InputSlider: React.FC = () => {
             inputProps={{
               step: 1,
               min: 1,
-              max: 100,
+              max: Math.floor(totalPrice / pieceValue),
               type: "number",
               "aria-labelledby": "input-slider",
             }}

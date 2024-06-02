@@ -8,29 +8,32 @@ import { useProduct } from "../Hooks/useProduct"
 function ProductPage() {
   const product = useProduct()
 
-  if (!product) {
-    return null // Zostanie przekierowany do /404
-  }
-  //   const product = useStore((state) => state.product)
-  //   const productList = useStore((state) => state.productList)
-  //   const increasePieceValue = useStore((state) => state.increasePieceValue)
-  //   const decreasePieceValue = useStore((state) => state.decreasePieceValue)
+  if (!product) return null
+
+  const { totalValue, pieceValue, boughtValue } = product
 
   const [activeSlide, setActiveSlide] = useState(1)
-  const [amountPieces, setAmountPieces] = useState(10)
+  const [amountPieces, setAmountPieces] = useState(1)
+  const [totalCost, setTotalCost] = useState(activeSlide * pieceValue)
 
   const handleSlideChange = (slide: number) => {
     setActiveSlide(slide)
   }
 
+  const handleInputChange = (value: number) => {
+    setAmountPieces(value)
+    const costSummary = value * pieceValue
+    setTotalCost(costSummary)
+  }
+
+  const costOfPieces = amountPieces * pieceValue
+  const operationalFee = totalCost * 0.01
+  const finalTotalCost = totalCost + operationalFee
+
   return (
     <div className="bg-black flex items-center justify-center min-h-screen">
-      <div
-        className="bg-bg_dark_grey flex w-full max-w-[1282px] h-auto mx-4 min-h-[616px]"
-        style={{ borderRadius: "25px" }}
-      >
+      <div className="bg-bg_dark_grey flex w-full max-w-[1282px] h-auto mx-4 min-h-[616px] rounded-full">
         <div className="relative bg-bg_dark_grey max-w-[506px] w-full flex-shrink-0 rounded-tl-[25px] rounded-bl-[25px] carousel">
-          {/* Kropki nawigacyjne na górze */}
           <div className="absolute top-[30px] left-1/2 transform -translate-x-1/2 flex space-x-2 z-10">
             <a
               href="#slide1"
@@ -55,7 +58,6 @@ function ProductPage() {
             ></a>
           </div>
 
-          {/* Zawartość lewego kontenera image bg */}
           <div
             id="slide1"
             className={`carousel-item relative w-full ${
@@ -93,69 +95,52 @@ function ProductPage() {
             />
           </div>
         </div>
-        {/* Prawy kontener */}
-        <div className="flex-grow p-4">
-          <h2 className="text-font_green">
+        <div className="flex-grow  pl-58 pr-92 pt-31 pb-26">
+          <h2 className="text-font_white font-montserrat text-30px font-700 text-left">
             {product.producent} {product.model}
           </h2>
-          <p>offer prepared by iCrowd sp.z.o.o</p>
-          <div className="flex justify-between   ">
+
+          <p className="text-14px text-font_green font-500 text-left">
+            offer prepared by <span className="font-700">iCrowd sp.z.o.o</span>
+          </p>
+
+          <div className="border border-1 border-custom-white opacity-10"></div>
+          <div className="flex justify-between">
             <span className="font-semibold">Price for 1 piece:</span>
             <span className="font-semibold">Total value:</span>
           </div>
           <div className="flex justify-between">
-            <span className="font-semibold">{product.pieceValue}</span>
-            <span className="font-semibold">{product.totalValue}</span>
+            <span className="font-semibold">{pieceValue}</span>
+            <span className="font-semibold">{totalValue}</span>
           </div>
-          <InputSlider />
+          <div className="border border-1 border-custom-white opacity-10"></div>
+          <InputSlider
+            pieceValue={pieceValue}
+            totalPrice={totalValue}
+            boughtValue={boughtValue}
+            onChange={handleInputChange}
+          />
           <div className="flex justify-between">
-            <span className="font-semibold">COST OF PIECES</span>
-            <span className="font-semibold">{product.pieceValue}</span>
+            <span className="font-semibold uppercase tracking-[0.2em]">
+              cost of pieces
+            </span>
+            <span className="font-semibold">{costOfPieces}</span>
           </div>
           <div className="flex justify-between">
-            <span className="font-semibold">OPERATIONAL FEE</span>
-            <span className="font-semibold">5</span>
+            <span className="font-semibold uppercase tracking-[0.2em]">
+              operational fee
+            </span>
+            <span className="font-semibold">{operationalFee}</span>
           </div>
           <div className="flex justify-between">
-            <span className="font-semibold">TOTAL COST</span>
-            <span className="font-semibold">505</span>
+            <span className="font-semibold uppercase tracking-[0.2em]">
+              total cost
+            </span>
+            <span className="font-semibold">{finalTotalCost}</span>
           </div>
-          <button className="w-full bg-blue-500 text-white font-semibold py-2 rounded-lg">
+          <button className="w-full text-white font-semibold mt-42 mb-26 py-18 rounded-full bg-gradient-btn_main ">
             Buy {amountPieces} pieces
           </button>
-
-          {/* <p>Total Value: {product.totalValue}</p>
-          <p>Piece Value: {product.pieceValue}</p>
-          <p>Bought Value: {product.boughtValue}</p> */}
-          <div className="mt-4">
-            {/* <button
-              onClick={decreasePieceValue}
-              className="btn btn-primary mr-2"
-            >
-              Decrease
-            </button>
-            <span>{product.pieceValue}</span>
-            <button
-              onClick={increasePieceValue}
-              className="btn btn-primary ml-2"
-            >
-              Increase
-            </button> */}
-          </div>
-
-          {/* <h3 className="mt-4 text-font_green">Product List:</h3> */}
-          {/* {productList ? (
-            <ul>
-              {productList.map((p) => (
-                <li key={p.id}>
-                  {p.producent} {p.model} - Total Value: {p.totalValue} - Piece
-                  Value: {p.pieceValue} - Bought Value: {p.boughtValue}
-                </li>
-              ))}
-            </ul>
-          ) : (
-            <p>No products available</p>
-          )} */}
         </div>
       </div>
     </div>

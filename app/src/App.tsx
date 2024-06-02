@@ -7,11 +7,10 @@ import NotFoundPage from "./views/NotFoundPage"
 function App() {
   return (
     <Router>
-      <div className="p-4">
+      <div>
         {/* <Breadcrumbs /> */}
         <Routes>
           <Route path="/:id" element={<ProductPage />} />
-          <Route path="/404" element={<NotFoundPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </div>
