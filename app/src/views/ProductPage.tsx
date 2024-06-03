@@ -5,7 +5,7 @@ import watch2 from "../assets/2.jpeg"
 import watch3 from "../assets/3.jpeg"
 import tetherSrc from "../assets/icons/usdt_icon.svg"
 import tetherSrcGreen from "../assets/icons/usdt_icon_green.svg"
-import { useProduct } from "../Hooks/useProduct"
+import { useProduct } from "../hooks/useProduct"
 import LoaderValue from "../components/bars/LoaderValue"
 import Breadcrumbs from "../components/BreadCrumbs"
 import SnackBar from "../components/UI/SnackBar" // Import the new SnackBar component
