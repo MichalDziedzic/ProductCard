@@ -194,7 +194,7 @@ function ProductPage() {
       </div>
       {showSnackBar && (
         <SnackBar
-          message="Your purchase has been confirmed!"
+          message={`Done! You successfully invested in ${product.producent} ${product.model}`}
           onClose={() => setShowSnackBar(false)}
         />
       )}
