@@ -19,7 +19,7 @@ function ProductPage() {
 
   const [activeSlide, setActiveSlide] = useState(1)
   const [amountPieces, setAmountPieces] = useState(5)
-  const [totalCost, setTotalCost] = useState(activeSlide * pieceValue)
+  const [totalCost, setTotalCost] = useState(amountPieces * pieceValue)
   const [showSnackBar, setShowSnackBar] = useState(false)
 
   const handleSlideChange = (slide: number) => {
