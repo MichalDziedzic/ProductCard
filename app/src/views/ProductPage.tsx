@@ -115,7 +115,7 @@ function ProductPage() {
             <span className="">Total value:</span>
           </div>
           <div className="flex justify-between text-20px font-500 paddingT_3px">
-            <span className="text-font_green  flex gap-2">
+            <span className="text-font_green  flex gap-2 items-center">
               <img
                 src={tetherSrcGreen}
                 alt="Tether"
@@ -123,7 +123,7 @@ function ProductPage() {
               />
               {pieceValue}
             </span>
-            <span className="text-font_white flex gap-2">
+            <span className="text-font_white flex gap-2 items-center">
               <img
                 src={tetherSrc}
                 alt="Tether"
@@ -143,7 +143,7 @@ function ProductPage() {
             <span className=" uppercase tracking-[0.2em] font-500 text-font_white opacity-10 text-14px">
               cost of pieces
             </span>
-            <span className="flex gap-2 ">
+            <span className="flex gap-2 items-center">
               <img
                 src={tetherSrc}
                 alt="Tether"
@@ -156,7 +156,7 @@ function ProductPage() {
             <span className=" uppercase tracking-[0.2em] font-500 text-font_white opacity-10 text-14px">
               operational fee
             </span>
-            <span className="flex gap-2">
+            <span className="flex gap-2 items-center">
               <img
                 src={tetherSrc}
                 alt="Tether"
@@ -169,7 +169,7 @@ function ProductPage() {
             <span className=" uppercase tracking-[0.2em] text-14px ">
               total cost
             </span>
-            <span className="flex gap-2">
+            <span className="flex gap-2 items-center">
               <img
                 src={tetherSrc}
                 alt="Tether"
@@ -179,7 +179,7 @@ function ProductPage() {
             </span>
           </div>
           <button
-            className="btn w-full text-white  mt-42  py-18 rounded-full bg-gradient-btn_main "
+            className="btn w-full text-font_green mt-42  py-18 rounded-full bg-gradient-btn_main "
             onClick={handleBuyClick}
           >
             Buy {amountPieces} pieces
