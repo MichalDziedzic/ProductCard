@@ -1,26 +1,17 @@
-import React from "react"
-import { Link, useLocation } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 
-const Breadcrumbs: React.FC = () => {
-  const location = useLocation()
-
-  const pathnames = location.pathname.split("/").filter((x) => x)
+const Breadcrumbs = () => {
+  const { id } = useParams<{ id: string }>()
 
   return (
-    <div className="text-sm breadcrumbs">
+    <div className="text-14px breadcrumbs pb-26">
       <ul>
         <li>
           <Link to="/">Home</Link>
         </li>
-        {pathnames.map((value, index) => {
-          const to = `/${pathnames.slice(0, index + 1).join("/")}`
-
-          return (
-            <li key={to}>
-              <Link to={to}>{value}</Link>
-            </li>
-          )
-        })}
+        <li>
+          <Link to={`/${id}`}>Current Auctions</Link>
+        </li>
       </ul>
     </div>
   )

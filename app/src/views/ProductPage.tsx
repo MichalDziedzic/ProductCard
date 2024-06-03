@@ -7,6 +7,7 @@ import tetherSrc from "../assets/icons/usdt_icon.svg"
 import tetherSrcGreen from "../assets/icons/usdt_icon_green.svg"
 import { useProduct } from "../Hooks/useProduct"
 import LoaderValue from "../components/bars/LoaderValue"
+import Breadcrumbs from "../components/BreadCrumbs"
 
 function ProductPage() {
   const product = useProduct()
@@ -42,27 +43,18 @@ function ProductPage() {
             totalValue={Math.floor(totalValue / pieceValue)}
           />
           <div className="absolute top-[30px] left-1/2 transform -translate-x-1/2 flex space-x-2 z-10">
-            <a
-              href="#slide1"
-              className={`btn btn-xs rounded-full w-3 h-3 ${
-                activeSlide === 1 ? "bg-white" : "bg-gray-500"
-              }`}
+            <button
+              className={`custom-dot ${activeSlide === 1 ? "active" : ""}`}
               onClick={() => handleSlideChange(1)}
-            ></a>
-            <a
-              href="#slide2"
-              className={`btn btn-xs rounded-full w-3 h-3 ${
-                activeSlide === 2 ? "bg-white" : "bg-gray-500"
-              }`}
+            ></button>
+            <button
+              className={`custom-dot ${activeSlide === 2 ? "active" : ""}`}
               onClick={() => handleSlideChange(2)}
-            ></a>
-            <a
-              href="#slide3"
-              className={`btn btn-xs rounded-full w-3 h-3 ${
-                activeSlide === 3 ? "bg-white" : "bg-gray-500"
-              }`}
+            ></button>
+            <button
+              className={`custom-dot ${activeSlide === 3 ? "active" : ""}`}
               onClick={() => handleSlideChange(3)}
-            ></a>
+            ></button>
           </div>
 
           <div
@@ -104,14 +96,13 @@ function ProductPage() {
         </div>
 
         <div className="flex-grow  pl-58 pr-92 pt-31 pb-26">
+          <Breadcrumbs /> {/* Use the new Breadcrumbs component */}
           <h2 className="text-font_white font-montserrat text-30px font-700 text-left">
             {product.producent} {product.model}
           </h2>
-
           <p className="text-14px text-font_green font-500 text-left pt-1">
             offer prepared by <span className="font-700">iCrowd sp.z.o.o</span>
           </p>
-
           <div className="border border-1 border-custom-white opacity-10 mb-20 mt-58"></div>
           <div className="flex justify-between text-14px ">
             <span className="">Price for 1 piece:</span>
@@ -143,7 +134,7 @@ function ProductPage() {
             onChange={handleInputChange}
           />
           <div className="flex justify-between font-700 text-20px">
-            <span className=" uppercase tracking-[0.2em] font-500 text-font_white opacity-10">
+            <span className=" uppercase tracking-[0.2em] font-500 text-font_white opacity-10 text-14px">
               cost of pieces
             </span>
             <span className="flex gap-2 ">
@@ -156,7 +147,7 @@ function ProductPage() {
             </span>
           </div>
           <div className="flex justify-between font-700 pt-20 text-20px">
-            <span className=" uppercase tracking-[0.2em] font-500 text-font_white opacity-10">
+            <span className=" uppercase tracking-[0.2em] font-500 text-font_white opacity-10 text-14px">
               operational fee
             </span>
             <span className="flex gap-2">
@@ -169,7 +160,7 @@ function ProductPage() {
             </span>
           </div>
           <div className="flex justify-between font-700 text-font_white pt-20 text-20px">
-            <span className="font-semibold uppercase tracking-[0.2em]  ">
+            <span className=" uppercase tracking-[0.2em] text-14px ">
               total cost
             </span>
             <span className="flex gap-2">
