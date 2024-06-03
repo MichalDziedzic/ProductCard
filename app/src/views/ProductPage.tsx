@@ -3,6 +3,8 @@ import InputSlider from "../components/PriceSlider"
 import watch1 from "../assets/1.png"
 import watch2 from "../assets/2.jpeg"
 import watch3 from "../assets/3.jpeg"
+import tetherSrc from "../assets/icons/usdt_icon.svg"
+import tetherSrcGreen from "../assets/icons/usdt_icon_green.svg"
 import { useProduct } from "../Hooks/useProduct"
 
 function ProductPage() {
@@ -110,8 +112,22 @@ function ProductPage() {
             <span className="">Total value:</span>
           </div>
           <div className="flex justify-between text-20px font-500 paddingT_3px">
-            <span className="text-font_green ">{pieceValue}</span>
-            <span className="text-font_white">{totalValue}</span>
+            <span className="text-font_green  flex gap-2">
+              <img
+                src={tetherSrcGreen}
+                alt="Tether"
+                className="w-20 h-20 object-cover"
+              />
+              {pieceValue}
+            </span>
+            <span className="text-font_white flex gap-2">
+              <img
+                src={tetherSrc}
+                alt="Tether"
+                className="w-20 h-20 object-cover"
+              />
+              {totalValue}
+            </span>
           </div>
           <div className="border border-1 border-custom-white opacity-10 mt-27 "></div>
           <InputSlider
@@ -120,23 +136,44 @@ function ProductPage() {
             boughtValue={boughtValue}
             onChange={handleInputChange}
           />
-          <div className="flex justify-between font-700">
+          <div className="flex justify-between font-700 text-20px">
             <span className=" uppercase tracking-[0.2em] font-500 text-font_white opacity-10">
               cost of pieces
             </span>
-            <span>{costOfPieces}</span>
+            <span className="flex gap-2 ">
+              <img
+                src={tetherSrc}
+                alt="Tether"
+                className="w-20 h-20 object-cover opacity-10"
+              />
+              {costOfPieces}
+            </span>
           </div>
-          <div className="flex justify-between font-700 pt-20">
+          <div className="flex justify-between font-700 pt-20 text-20px">
             <span className=" uppercase tracking-[0.2em] font-500 text-font_white opacity-10">
               operational fee
             </span>
-            <span>{operationalFee}</span>
+            <span className="flex gap-2">
+              <img
+                src={tetherSrc}
+                alt="Tether"
+                className="w-20 h-20 object-cover opacity-10"
+              />
+              {operationalFee}
+            </span>
           </div>
-          <div className="flex justify-between font-700 text-font_white pt-20">
+          <div className="flex justify-between font-700 text-font_white pt-20 text-20px">
             <span className="font-semibold uppercase tracking-[0.2em]  ">
               total cost
             </span>
-            <span>{finalTotalCost}</span>
+            <span className="flex gap-2">
+              <img
+                src={tetherSrc}
+                alt="Tether"
+                className="w-20 h-20 object-cover "
+              />
+              {finalTotalCost}
+            </span>
           </div>
           <button className="w-full text-white font-semibold mt-42  py-18 rounded-full bg-gradient-btn_main ">
             Buy {amountPieces} pieces
