@@ -8,6 +8,7 @@ import tetherSrcGreen from "../assets/icons/usdt_icon_green.svg"
 import { useProduct } from "../Hooks/useProduct"
 import LoaderValue from "../components/bars/LoaderValue"
 import Breadcrumbs from "../components/BreadCrumbs"
+import SnackBar from "../components/UI/SnackBar" // Import the new SnackBar component
 
 function ProductPage() {
   const product = useProduct()
@@ -19,6 +20,7 @@ function ProductPage() {
   const [activeSlide, setActiveSlide] = useState(1)
   const [amountPieces, setAmountPieces] = useState(1)
   const [totalCost, setTotalCost] = useState(activeSlide * pieceValue)
+  const [showSnackBar, setShowSnackBar] = useState(false)
 
   const handleSlideChange = (slide: number) => {
     setActiveSlide(slide)
@@ -28,6 +30,10 @@ function ProductPage() {
     setAmountPieces(value)
     const costSummary = value * pieceValue
     setTotalCost(costSummary)
+  }
+
+  const handleBuyClick = () => {
+    setShowSnackBar(true)
   }
 
   const costOfPieces = amountPieces * pieceValue
@@ -96,7 +102,7 @@ function ProductPage() {
         </div>
 
         <div className="flex-grow  pl-58 pr-92 pt-31 pb-26">
-          <Breadcrumbs /> {/* Use the new Breadcrumbs component */}
+          <Breadcrumbs />
           <h2 className="text-font_white font-montserrat text-30px font-700 text-left">
             {product.producent} {product.model}
           </h2>
@@ -172,7 +178,10 @@ function ProductPage() {
               {finalTotalCost}
             </span>
           </div>
-          <button className="w-full text-white font-semibold mt-42  py-18 rounded-full bg-gradient-btn_main ">
+          <button
+            className="btn w-full text-white font-semibold mt-42  py-18 rounded-full bg-gradient-btn_main "
+            onClick={handleBuyClick}
+          >
             Buy {amountPieces} pieces
           </button>
           <div className="flex font-600 text-14px pt-2.5 text-center">
@@ -183,6 +192,12 @@ function ProductPage() {
           </div>
         </div>
       </div>
+      {showSnackBar && (
+        <SnackBar
+          message="Your purchase has been confirmed!"
+          onClose={() => setShowSnackBar(false)}
+        />
+      )}
     </div>
   )
 }

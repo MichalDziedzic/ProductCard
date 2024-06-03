@@ -8,9 +8,9 @@ function App() {
   return (
     <Router>
       <div>
-        {/* <Breadcrumbs /> */}
         <Routes>
           <Route path="/:id" element={<ProductPage />} />
+          <Route path="/404" element={<NotFoundPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </div>
