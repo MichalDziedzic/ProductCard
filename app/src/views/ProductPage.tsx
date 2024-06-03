@@ -18,7 +18,7 @@ function ProductPage() {
   const { totalValue, pieceValue, boughtValue } = product
 
   const [activeSlide, setActiveSlide] = useState(1)
-  const [amountPieces, setAmountPieces] = useState(1)
+  const [amountPieces, setAmountPieces] = useState(5)
   const [totalCost, setTotalCost] = useState(activeSlide * pieceValue)
   const [showSnackBar, setShowSnackBar] = useState(false)
 
@@ -179,7 +179,7 @@ function ProductPage() {
             </span>
           </div>
           <button
-            className="btn w-full text-white font-semibold mt-42  py-18 rounded-full bg-gradient-btn_main "
+            className="btn w-full text-white  mt-42  py-18 rounded-full bg-gradient-btn_main "
             onClick={handleBuyClick}
           >
             Buy {amountPieces} pieces

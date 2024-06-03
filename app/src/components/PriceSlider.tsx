@@ -20,7 +20,7 @@ const InputSlider: React.FC<InputSliderProps> = ({
   boughtValue,
   onChange,
 }) => {
-  const [value, setValue] = React.useState<number>(1)
+  const [value, setValue] = React.useState<number>(5)
 
   const handleSliderChange = (event: Event, newValue: number | number[]) => {
     const newVal = newValue as number

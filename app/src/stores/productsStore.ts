@@ -31,22 +31,6 @@ export const useStoreProducts = create<State>((set, get) => ({
       pieceValue: 100,
       boughtValue: 8024,
     },
-    {
-      id: 2,
-      producent: "Rolex",
-      model: "Submariner",
-      totalValue: 8000000,
-      pieceValue: 50,
-      boughtValue: 6000,
-    },
-    {
-      id: 3,
-      producent: "Omega",
-      model: "Speedmaster",
-      totalValue: 6000000,
-      pieceValue: 75,
-      boughtValue: 5000,
-    },
   ],
   increasePieceValue: () =>
     set((state) => ({
