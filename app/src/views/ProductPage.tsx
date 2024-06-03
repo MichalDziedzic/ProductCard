@@ -6,6 +6,7 @@ import watch3 from "../assets/3.jpeg"
 import tetherSrc from "../assets/icons/usdt_icon.svg"
 import tetherSrcGreen from "../assets/icons/usdt_icon_green.svg"
 import { useProduct } from "../Hooks/useProduct"
+import LoaderValue from "../components/bars/LoaderValue"
 
 function ProductPage() {
   const product = useProduct()
@@ -36,6 +37,10 @@ function ProductPage() {
     <div className="bg-black flex items-center justify-center min-h-screen">
       <div className="bg-bg_dark_grey flex w-full max-w-[1282px] h-auto mx-4 min-h-[616px] rounded-full">
         <div className="relative bg-bg_dark_grey max-w-[506px] w-full flex-shrink-0 rounded-tl-[25px] rounded-bl-[25px] carousel">
+          <LoaderValue
+            bought={boughtValue}
+            totalValue={Math.floor(totalValue / pieceValue)}
+          />
           <div className="absolute top-[30px] left-1/2 transform -translate-x-1/2 flex space-x-2 z-10">
             <a
               href="#slide1"
@@ -97,6 +102,7 @@ function ProductPage() {
             />
           </div>
         </div>
+
         <div className="flex-grow  pl-58 pr-92 pt-31 pb-26">
           <h2 className="text-font_white font-montserrat text-30px font-700 text-left">
             {product.producent} {product.model}

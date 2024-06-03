@@ -27,9 +27,9 @@ export const useStoreProducts = create<State>((set, get) => ({
       id: 1,
       producent: "Patek Philippe",
       model: "Nautilus",
-      totalValue: 10000000,
+      totalValue: 1000000,
       pieceValue: 100,
-      boughtValue: 8000,
+      boughtValue: 8024,
     },
     {
       id: 2,

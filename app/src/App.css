@@ -55,3 +55,51 @@
 .css-qcas13-MuiInputBase-root-MuiInput-root::after {
   border-bottom: none !important;
 }
+
+.loader-wrapper {
+  position: absolute !important;
+  left: 50%;
+  bottom: 26px;
+  transform: translateX(-50%);
+  z-index: 1;
+  height: 36px !important;
+  width: 100%;
+  max-width: 396px !important;
+}
+.progressBar {
+  height: 36px !important;
+  width: 100%;
+  max-width: 396px !important;
+  border-radius: 10px;
+  background-color: #f3f3f3;
+}
+
+.progressBar::-webkit-progress-value {
+  background: linear-gradient(93.73deg, #b3ca85 5.04%, #4daad3 95.09%);
+  transition: width 5s ease;
+  border-radius: 10px;
+}
+
+.progressBar::-moz-progress-bar {
+  background: linear-gradient(93.73deg, #b3ca85 5.04%, #4daad3 95.09%);
+  transition: width 5s ease;
+  border-radius: 10px;
+}
+
+.progressBar::-ms-fill {
+  background: linear-gradient(93.73deg, #b3ca85 5.04%, #4daad3 95.09%);
+  transition: width 5s ease;
+  border-radius: 10px;
+}
+
+.progressBarText {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 17px;
+  color: black;
+  z-index: 3;
+  font-size: 15px;
+  font-weight: 700;
+}
