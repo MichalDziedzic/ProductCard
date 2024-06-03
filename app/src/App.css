@@ -1,24 +1,57 @@
 /* CUSTOMS */
 /* TODO to CHECK!!! */
-.css-1w8cq46-MuiInputBase-root-MuiInput-root::before {
+/* .css-1w8cq46-MuiInputBase-root-MuiInput-root::before {
+  border-bottom: none !important;
+} */
+
+/* .css-1w8cq46-MuiInputBase-root-MuiInput-root {
+  border-bottom: none !important ; /* input priceSlider border remove*/
+/* } */
+
+.css-1swl98f-MuiInputBase-root-MuiInput-root::before {
   border-bottom: none !important;
 }
-.css-1w8cq46-MuiInputBase-root-MuiInput-root {
-  border-bottom: none !important ; /* input priceSlider border remove*/
+
+.css-1swl98f-MuiInputBase-root-MuiInput-root::after {
+  border-bottom: none !important;
+}
+.css-1swl98f-MuiInputBase-root-MuiInput-root:hover:not(
+    .Mui-disabled,
+    .Mui-error
+  ):before {
+  border-bottom: none !important;
 }
 
 .css-nz481w-MuiInputBase-input-MuiInput-input {
   color: #ffffff !important; /* change font color - input priceSlider */
   font-weight: 700 !important;
   font-size: 2rem !important;
+  font-family: Montserrat !important;
 }
 
-.css-1w8cq46-MuiInputBase-root-MuiInput-root::after {
+/* .css-1w8cq46-MuiInputBase-root-MuiInput-root::after {
   border-bottom: none !important; /* input priceSlider focus*/
+/* } */
+.css-cp2j25-MuiSlider-thumb {
+  width: 26px !important;
+  height: 26px !important;
 }
 
-.css-ofrcno-MuiGrid-root > .MuiGrid-item {
-  padding-left: calc(
-    1rem + 1rem / 2
-  ) !important; /* align to left side sliderInput */
+.css-1t06vte-MuiSlider-root .MuiSlider-rail {
+  height: 3px !important;
+}
+
+.paddingT_3px {
+  padding-top: 3px;
+}
+
+.css-nz481w-MuiInputBase-input-MuiInput-input {
+  text-align: end !important;
+}
+
+.css-qcas13-MuiInputBase-root-MuiInput-root::before {
+  border-bottom: none !important;
+}
+.css-qcas13-MuiInputBase-root-MuiInput-root::after {
+  border-bottom: none !important;
 }

@@ -100,47 +100,53 @@ function ProductPage() {
             {product.producent} {product.model}
           </h2>
 
-          <p className="text-14px text-font_green font-500 text-left">
+          <p className="text-14px text-font_green font-500 text-left pt-1">
             offer prepared by <span className="font-700">iCrowd sp.z.o.o</span>
           </p>
 
-          <div className="border border-1 border-custom-white opacity-10"></div>
-          <div className="flex justify-between">
-            <span className="font-semibold">Price for 1 piece:</span>
-            <span className="font-semibold">Total value:</span>
+          <div className="border border-1 border-custom-white opacity-10 mb-20 mt-58"></div>
+          <div className="flex justify-between text-14px ">
+            <span className="">Price for 1 piece:</span>
+            <span className="">Total value:</span>
           </div>
-          <div className="flex justify-between">
-            <span className="font-semibold">{pieceValue}</span>
-            <span className="font-semibold">{totalValue}</span>
+          <div className="flex justify-between text-20px font-500 paddingT_3px">
+            <span className="text-font_green ">{pieceValue}</span>
+            <span className="text-font_white">{totalValue}</span>
           </div>
-          <div className="border border-1 border-custom-white opacity-10"></div>
+          <div className="border border-1 border-custom-white opacity-10 mt-27 "></div>
           <InputSlider
             pieceValue={pieceValue}
             totalPrice={totalValue}
             boughtValue={boughtValue}
             onChange={handleInputChange}
           />
-          <div className="flex justify-between">
-            <span className="font-semibold uppercase tracking-[0.2em]">
+          <div className="flex justify-between font-700">
+            <span className=" uppercase tracking-[0.2em] font-500 text-font_white opacity-10">
               cost of pieces
             </span>
-            <span className="font-semibold">{costOfPieces}</span>
+            <span>{costOfPieces}</span>
           </div>
-          <div className="flex justify-between">
-            <span className="font-semibold uppercase tracking-[0.2em]">
+          <div className="flex justify-between font-700 pt-20">
+            <span className=" uppercase tracking-[0.2em] font-500 text-font_white opacity-10">
               operational fee
             </span>
-            <span className="font-semibold">{operationalFee}</span>
+            <span>{operationalFee}</span>
           </div>
-          <div className="flex justify-between">
-            <span className="font-semibold uppercase tracking-[0.2em]">
+          <div className="flex justify-between font-700 text-font_white pt-20">
+            <span className="font-semibold uppercase tracking-[0.2em]  ">
               total cost
             </span>
-            <span className="font-semibold">{finalTotalCost}</span>
+            <span>{finalTotalCost}</span>
           </div>
-          <button className="w-full text-white font-semibold mt-42 mb-26 py-18 rounded-full bg-gradient-btn_main ">
+          <button className="w-full text-white font-semibold mt-42  py-18 rounded-full bg-gradient-btn_main ">
             Buy {amountPieces} pieces
           </button>
+          <div className="flex font-600 text-14px pt-2.5 text-center">
+            <p className="w-full">
+              By purchasing pieces you accept Investment offer and Terms and
+              regulations
+            </p>
+          </div>
         </div>
       </div>
     </div>
